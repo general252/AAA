@@ -41,6 +41,14 @@ RUN cd /home \
     && rm -rf ~/.cache/pip/*
 
 RUN pip install Django==2.0.5 \
+    && pip install asn1crypto==0.24.0 \
+    && pip install cffi==1.11.5 \
+    && pip install cryptography==2.4.2 \
+    && pip install idna==2.8 \
+    && pip install PyMySQL==0.9.2 \
+    && pip install pytz==2018.7 \
+    && pip install redis==3.0.1 \
+    && pip install six==1.11.0 \
     && yum clean all \
     && rm -rf /var/cache/yum \
     && rm -rf ~/.cache/pip/*
