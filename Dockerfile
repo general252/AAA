@@ -47,7 +47,7 @@ RUN pip install Django==2.0.5 \
     && pip install idna==2.8 \
     && pip install PyMySQL==0.9.2 \
     && pip install pytz==2018.7 \
-    && pip install redis==3.0.1 \
+    && pip install redis==2.10.6 \
     && pip install six==1.11.0 \
     && pip install django-redis==4.9.0 \
     && yum clean all \
