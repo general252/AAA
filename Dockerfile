@@ -50,6 +50,7 @@ RUN pip install Django==2.0.5 \
     && pip install redis==2.10.6 \
     && pip install six==1.11.0 \
     && pip install django-redis==4.9.0 \
+    && pip install uwsgi \
     && yum clean all \
     && rm -rf /var/cache/yum \
     && rm -rf ~/.cache/pip/*
@@ -65,7 +66,6 @@ RUN cd /home \
 
 WORKDIR /home
 
-EXPOSE 22
-EXPOSE 8000
+EXPOSE 22, 8000
 
 CMD ["/usr/sbin/sshd", "-D"]
