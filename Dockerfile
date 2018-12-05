@@ -2,7 +2,7 @@
 
 FROM centos:7
 
-MAINTAINER MNicholas "chuanlin252@qq.com"
+MAINTAINER MNicholas "auth@163.com"
 
 # ADD nginx-1.12.2.tar.gz /usr/local/src
 
