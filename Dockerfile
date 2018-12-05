@@ -49,12 +49,12 @@ RUN pip install Django==2.0.5 \
     && pip install redis==2.10.6 \
     && pip install six==1.11.0 \
     && pip install django-redis==4.9.0 \
-    && pip install uwsgi \
+    && pip install uWSGI==2.0.17.1 \
     && yum clean all \
     && rm -rf /var/cache/yum \
     && rm -rf ~/.cache/pip/*
 
-# RUN pip3 install virtualenv
+# RUN pip install virtualenv
 # RUN virtualenv -p /usr/bin/python36 /home/env
 # RUN source /home/env/bin/activate \
 
