@@ -2,10 +2,9 @@
 
 FROM centos:7
 
-MAINTAINER MNicholas "475807132@qq.com"
+MAINTAINER MNicholas "chuanlin252@qq.com"
 
 # ADD nginx-1.12.2.tar.gz /usr/local/src
-
 
 RUN cd /home \
     && echo root:"123456" | chpasswd \
