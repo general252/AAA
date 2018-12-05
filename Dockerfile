@@ -66,6 +66,6 @@ RUN cd /home \
 
 WORKDIR /home
 
-EXPOSE 22, 8000
+EXPOSE 22 8000
 
 CMD ["/usr/sbin/sshd", "-D"]
