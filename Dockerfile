@@ -61,7 +61,9 @@ RUN pip install Django==2.0.5 \
 # datetime, encode
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo 'Asia/Shanghai' > /etc/timezone \
-    && export LC_ALL=en_US.UTF-8 \
+    && echo export LC_ALL=en_US.UTF-8 >> /etc/profile \
+    && source /etc/profile \
+    && locale \
     && echo "now time is : $(date +%Y-%m-%d\ %H:%M:%S)"
 
 RUN cd /home \
