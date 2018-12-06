@@ -62,7 +62,7 @@ RUN pip install Django==2.0.5 \
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo 'Asia/Shanghai' > /etc/timezone \
     && export LC_ALL=en_US.UTF-8 \
-    && echo "now time: $(date +%Y-%m-%d\ %H:%M:%S)"
+    && echo "now time is : $(date +%Y-%m-%d\ %H:%M:%S)"
 
 RUN cd /home \
     && django-admin startproject project_name \
