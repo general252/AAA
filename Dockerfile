@@ -50,6 +50,7 @@ RUN pip install Django==2.0.5 \
     && pip install six==1.11.0 \
     && pip install django-redis==4.9.0 \
     && pip install uWSGI==2.0.17.1 \
+    && pip install pyzmq==18.0.1 \
     && yum clean all \
     && rm -rf /var/cache/yum \
     && rm -rf ~/.cache/pip/*
