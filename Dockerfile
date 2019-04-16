@@ -52,6 +52,7 @@ RUN pip install Django==2.0.5 \
     && pip install uWSGI==2.0.17.1 \
     && pip install pyzmq==18.0.1 \
     && pip install rsa==4.0 \
+    && pip install APScheduler==3.6.0 \
     && yum clean all \
     && rm -rf /var/cache/yum \
     && rm -rf ~/.cache/pip/*
