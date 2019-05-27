@@ -53,6 +53,7 @@ RUN pip install Django==2.0.5 \
     && pip install pyzmq==18.0.1 \
     && pip install rsa==4.0 \
     && pip install APScheduler==3.6.0 \
+    && pip install pycryptodome==3.8.1 \
     && yum clean all \
     && rm -rf /var/cache/yum \
     && rm -rf ~/.cache/pip/*
