@@ -8,7 +8,7 @@ bvr-openssl==0.5
 cffi==1.11.5
 channels==2.0.2
 constantly==15.1.0
-cryptography==2.2.2
+cryptography==3.2
 daphne==2.1.0
 Django==2.0.5
 django-extensions==2.0.6
