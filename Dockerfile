@@ -6,7 +6,7 @@ MAINTAINER MNicholas "auth@163.com"
 
 # ADD nginx-1.12.2.tar.gz /usr/local/src
 
-RUN cd /home \
+RUN    cd /home \
     && echo root:"123456" | chpasswd \
     && yum install -y openssh-server \
     && ssh-keygen -q -t rsa -b 2048 -f /etc/ssh/ssh_host_rsa_key -N '' \
@@ -16,44 +16,50 @@ RUN cd /home \
     && yum install -y gcc \
     && yum install -y mysql-devel \
     && yum install -y epel-release \
+    && sed -i '3,4s/#baseurl/baseurl/g'   /etc/yum.repos.d/epel.repo \
+    && sed -i '3,4s/metalink/#metalink/g' /etc/yum.repos.d/epel.repo \
     && yum install -y python36 \
     && yum install -y python36-devel \
-    && wget --no-check-certificate https://pypi.python.org/packages/source/s/setuptools/setuptools-19.6.tar.gz#md5=c607dd118eae682c44ed146367a17e26 \
-    && tar -zxvf setuptools-19.6.tar.gz \
-    && cd setuptools-19.6 \
+    && ln -s /usr/bin/python3.6 /usr/bin/python36 \
+    && whereis python36 && python36 --version \
+    && wget --no-check-certificate https://files.pythonhosted.org/packages/6a/fa/5ec0fa9095c9b72cb1c31a8175c4c6745bf5927d1045d7a70df35d54944f/setuptools-59.6.0.tar.gz \
+    && tar -zxvf setuptools-59.6.0.tar.gz \
+    && cd setuptools-59.6.0 \
     && python36 setup.py build \
     && python36 setup.py install \
     && cd .. \
-    && rm -f setuptools-19.6.tar.gz \
-    && rm -rf setuptools-19.6 \
-    && wget --no-check-certificate https://pypi.python.org/packages/source/p/pip/pip-8.0.2.tar.gz#md5=3a73c4188f8dbad6a1e6f6d44d117eeb \
-    && tar -zxvf pip-8.0.2.tar.gz \
-    && cd pip-8.0.2 \
+    && rm -f setuptools-59.6.0.tar.gz \
+    && rm -rf setuptools-59.6.0 \
+    && wget --no-check-certificate https://files.pythonhosted.org/packages/da/f6/c83229dcc3635cdeb51874184241a9508ada15d8baa337a41093fab58011/pip-21.3.1.tar.gz \
+    && tar -zxvf pip-21.3.1.tar.gz \
+    && cd pip-21.3.1 \
     && python36 setup.py build \
     && python36 setup.py install \
     && pip3 install --upgrade pip \
     && cd .. \
-    && rm -f pip-8.0.2.tar.gz \
-    && rm -rf pip-8.0.2 \
+    && rm -f pip-21.3.1.tar.gz \
+    && rm -rf pip-21.3.1 \
     && yum clean all \
     && rm -rf /var/cache/yum \
     && rm -rf ~/.cache/pip/*
 
-RUN pip install Django==2.0.5 \
-    && pip install asn1crypto==0.24.0 \
-    && pip install cffi==1.11.5 \
-    && pip install cryptography==2.4.2 \
-    && pip install idna==2.8 \
-    && pip install PyMySQL==0.9.2 \
-    && pip install pytz==2018.7 \
-    && pip install redis==2.10.6 \
-    && pip install six==1.11.0 \
-    && pip install django-redis==4.9.0 \
-    && pip install uWSGI==2.0.17.1 \
-    && pip install pyzmq==18.0.1 \
-    && pip install rsa==4.0 \
-    && pip install APScheduler==3.6.0 \
-    && pip install pycryptodome==3.8.1 \
+RUN    pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org Django==2.0.5 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org asn1crypto==0.24.0 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org cffi==1.11.5 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org cryptography==2.4.2 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org idna==2.8 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org PyMySQL==0.9.2 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pytz==2018.7 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org redis==2.10.6 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org six==1.11.0 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org django-redis==4.9.0 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org uWSGI==2.0.17.1 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pyzmq==18.0.1 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org rsa==4.0 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org APScheduler==3.6.0 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pycryptodome==3.8.1 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org grpcio==1.45.0 \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org grpcio-tools==1.45.0 \
     && yum clean all \
     && rm -rf /var/cache/yum \
     && rm -rf ~/.cache/pip/*
