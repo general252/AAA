@@ -58,7 +58,11 @@ RUN    pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org
     && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org rsa==4.0 \
     && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org APScheduler==3.6.0 \
     && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pycryptodome==3.8.1 \
-    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org grpcio==1.45.0 \
+    && yum clean all \
+    && rm -rf /var/cache/yum \
+    && rm -rf ~/.cache/pip/*
+
+RUN    pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org grpcio==1.45.0 \
     && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org grpcio-tools==1.45.0 \
     && yum clean all \
     && rm -rf /var/cache/yum \
