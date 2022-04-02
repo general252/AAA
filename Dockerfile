@@ -54,6 +54,8 @@ RUN pip install Django==2.0.5 \
     && pip install rsa==4.0 \
     && pip install APScheduler==3.6.0 \
     && pip install pycryptodome==3.8.1 \
+    && pip install grpcio==1.45.0 \
+    && pip install grpcio-tools==1.45.0 \
     && yum clean all \
     && rm -rf /var/cache/yum \
     && rm -rf ~/.cache/pip/*
